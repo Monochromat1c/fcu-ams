@@ -38,11 +38,6 @@ Route::middleware(['auth.user'])->group(function () {
         Route::post('/asset/add', 'store')->name('asset.add.store');
         Route::post('/asset/{id}', 'update')->name('asset.update');
         Route::delete('/asset/{id}', 'destroy')->name('asset.delete');
-        // Route::get('/inventory/stock/in', 'create')->name('inventory.stock.in');
-        // Route::get('/inventory/stock/in/{id}/edit', 'edit')->name('inventory.stock.in.edit');
-        // Route::post('/inventory/stock/in', 'store')->name('inventory.stock.in.store');
-        // Route::post('/inventory/stock/in/{id}', 'update')->name('inventory.stock.in.update');
-        // Route::delete('/inventory/{id}', 'destroy')->name('inventory.delete');
     }); 
 
     Route::controller(InventoryController::class)->group(function (){
@@ -81,7 +76,3 @@ Route::middleware(['auth.user'])->group(function () {
         Route::post('/lease', 'store')->name('lease.store');
     });
 });
-
-// Route::controller(TestController::class)->group(function() {
-//     Route::get('/test/dashboard', 'dashboardTest')->name('test.dashboard');
-// });

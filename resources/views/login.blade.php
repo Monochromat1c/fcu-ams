@@ -9,7 +9,7 @@
                 action="{{ route('login.submit') }}" method="post">
                 @csrf
                 <img class="fcu-icon mb-3" src="/img/login/fcu-icon.png" alt="" srcset="">
-                <h1 class=" text-blue-900 text-center text-5xl">FCU AMS</h1>
+                <h1 class=" text-blue-900 text-center text-5xl">FCU</h1>
                 <h2 class=" text-blue-900 text-center text-2xl mb-5">Asset Management System</h2>
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
