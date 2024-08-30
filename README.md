@@ -1,5 +1,5 @@
-<p align="center">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAt-FOR-ywAer4Bp-DiFUjEnT88WnhJckltw&s" style="width:40dvw;border-radius:30px;" alt="FCU">
+<p align="center" style="width:40dvw;border-radius:40%;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAt-FOR-ywAer4Bp-DiFUjEnT88WnhJckltw&s" style="width:40dvw;border-radius:40%;" alt="FCU">
 </p>
 
 ## About Our Asset Management System
