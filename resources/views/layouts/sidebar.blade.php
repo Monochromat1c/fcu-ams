@@ -3,6 +3,11 @@
         padding: 1px 0;
         margin: .50rem 1rem 1rem 1rem;
     }
+
+    .fcu-icon {
+        width: 150px;
+        height: 150px;
+    }
 </style>
 
 <div class="sidebar flex-grow flex flex-col overflow-y-auto">
