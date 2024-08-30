@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAt-FOR-ywAer4Bp-DiFUjEnT88WnhJckltw&s" style="width:40dvw;border-radius:30px;" alt="FCU">
 </p>
 
 ## About Our Asset Management System
