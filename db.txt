@@ -1,0 +1,132 @@
+This is the tables in my database:
+public function up()
+    {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('category');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('departments', function (Blueprint $table) {
+            $table->id();
+            $table->string('department');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('sites', function (Blueprint $table) {
+            $table->id();
+            $table->string('site');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
+            $table->string('location');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('suppliers', function (Blueprint $table) {
+            $table->id();
+            $table->string('supplier');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('customers', function (Blueprint $table) {
+            $table->id();
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->string('address');
+            $table->string('contact_number');
+            $table->string('email');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('maintenances', function (Blueprint $table) {
+            $table->id();
+            $table->string('maintenance_title');
+            $table->string('maintenance_detail')->nullable();
+            $table->date('maintenance_due_date');
+            $table->string('maintenance_by');
+            $table->string('maintenance_status');
+            $table->date('date_completed')->nullable();
+            $table->decimal('maintenance_cost', 10, 2);
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('role');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('profile_picture')->nullable();
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->string('address');
+            $table->string('contact_number');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->string('email');
+            $table->string('username');
+            $table->string('password');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('assets', function (Blueprint $table) {
+            $table->id();
+            $table->string('asset_image')->nullable();
+            $table->string('asset_name');
+            $table->string('brand');
+            $table->string('model');
+            $table->string('serial_number');
+            $table->decimal('cost', 10, 2);
+            $table->unsignedBigInteger('supplier_id');
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
+            $table->unsignedBigInteger('site_id');
+            $table->foreign('site_id')->references('id')->on('sites');
+            $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('locations');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('id')->on('departments');
+            $table->date('purchase_date');
+            $table->timestamps();
+        });
+    }
+public function up()
+    {
+        Schema::create('inventories', function (Blueprint $table) {
+            $table->id();
+            $table->string('stock_image')->nullable();
+            $table->integer('stocks');
+            $table->string('unit');
+            $table->string('items_specs');
+            $table->decimal('unit_price', 10, 2);
+            $table->unsignedBigInteger('supplier_id');
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
+            $table->timestamps();
+        });
+    }
