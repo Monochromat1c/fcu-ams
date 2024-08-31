@@ -128,15 +128,15 @@ class DashboardController extends Controller
 
     private function getRecentActions($limit = 5)
     {
-        $assets = Asset::select('id', 'asset_name as name', 'created_at', DB::raw("'Asset' as type"), DB::raw("'added' as action"))
+        $assets = Asset::select('id', 'asset_tag as name', 'created_at', DB::raw("'Asset' as type"), DB::raw("'added' as action"))
             ->unionAll(
-                Asset::select('id', 'asset_name as name', 'updated_at as created_at', DB::raw("'Asset' as type"), DB::raw("'updated' as action"))
+                Asset::select('id', 'asset_tag as name', 'updated_at as created_at', DB::raw("'Asset' as type"), DB::raw("'updated' as action"))
                     ->whereRaw('updated_at > created_at')
             )
             ->unionAll(
                 Asset::withTrashed()
                     ->whereNotNull('deleted_at')
-                    ->select('id', 'asset_name as name', 'deleted_at as created_at', DB::raw("'Asset' as type"),
+                    ->select('id', 'asset_tag as name', 'deleted_at as created_at', DB::raw("'Asset' as type"),
                     DB::raw("'removed' as action"))
             );
 

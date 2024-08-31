@@ -12,13 +12,15 @@ class Asset extends Model
 
     protected $fillable = [
         'asset_image',
-        'asset_name',
+        'asset_tag',
         'brand',
         'model',
         'serial_number',
         'cost',
         'purchase_date',
-        'deleted_at',
+        'purchase_date',
+        'condition',
+        'description',
     ];
 
     public function supplier()
