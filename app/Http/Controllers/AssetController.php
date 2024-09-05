@@ -229,8 +229,14 @@ class AssetController extends Controller
         $sheet->setCellValue('J1', 'Category'); 
         $sheet->setCellValue('K1', 'Department'); 
         $sheet->setCellValue('L1', 'Purchase Date'); 
+<<<<<<< HEAD
         $sheet->setCellValue('M1', 'Created At'); 
         $sheet->setCellValue('N1', 'Updated At'); 
+=======
+        $sheet->setCellValue('M1', 'Condition'); 
+        $sheet->setCellValue('N1', 'Created At'); 
+        $sheet->setCellValue('O1', 'Updated At'); 
+>>>>>>> 20092b3 (export working using phpspreadsheet)
         $row = 2; foreach ($assets as $asset) { 
             $sheet->setCellValue('A' . $row, $asset->id); 
             $sheet->setCellValue('B' . $row, $asset->asset_name); 
@@ -244,8 +250,14 @@ class AssetController extends Controller
             $sheet->setCellValue('J' . $row, $asset->category->category);
             $sheet->setCellValue('K' . $row, $asset->department->department);
             $sheet->setCellValue('L' . $row, $asset->purchase_date); 
+<<<<<<< HEAD
             $sheet->setCellValue('M' . $row, $asset->created_at); 
             $sheet->setCellValue('N' . $row, $asset->updated_at); $row++; 
+=======
+            $sheet->setCellValue('M' . $row, $asset->condition); 
+            $sheet->setCellValue('N' . $row, $asset->created_at); 
+            $sheet->setCellValue('O' . $row, $asset->updated_at); $row++; 
+>>>>>>> 20092b3 (export working using phpspreadsheet)
         } 
         $writer = new Xlsx($spreadsheet); $filename = 'assets_' . date('Y-m-d') . '.xlsx';
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
