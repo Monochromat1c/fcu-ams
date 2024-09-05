@@ -31,6 +31,7 @@ Route::middleware(['auth.user'])->group(function () {
 
     Route::controller(AssetController::class)->group(function (){
         Route::get('/asset/list', 'index')->name('asset.list');
+        Route::get('/asset/export', 'exportToExcel')->name('asset.export');
         Route::get('/asset/{id}/view', 'show')->name('asset.view');
         Route::get('/asset/add', 'create')->name('asset.add');
         Route::get('/asset/{id}/edit', 'edit')->name('asset.edit');

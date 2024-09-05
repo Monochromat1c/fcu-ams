@@ -27,7 +27,7 @@ class AssetSeeder extends Seeder
 
         if ($supplier && $site && $location && $category && $department) {
             Asset::create([
-                'asset_name' => 'Asus Zephyr 2020 Edition',
+                'asset_tag' => 'Laptop - 2',
                 'brand' => 'Asus',
                 'model' => 'Zephyr',
                 'serial_number' => 'SN123456',
@@ -39,6 +39,7 @@ class AssetSeeder extends Seeder
                 'department_id' => $department->id,
                 'purchase_date' => '2024-07-18',
                 'condition' => 'New',
+                'description' => 'Laptop',
             ]);
         } else {
             echo "Some required records are missing.\n";
@@ -46,9 +47,9 @@ class AssetSeeder extends Seeder
         
         if ($supplier && $site && $location && $category && $department) {
             Asset::create([
-                'asset_name' => 'Asus Zephyr',
+                'asset_tag' => 'Laptop - 3',
                 'brand' => 'Asus',
-                'model' => 'Zephyr',
+                'model' => 'Zephyr 2020 Edition',
                 'serial_number' => 'SN395456',
                 'cost' => 24999.00,
                 'supplier_id' => $supplier->id,
@@ -58,6 +59,7 @@ class AssetSeeder extends Seeder
                 'department_id' => $department->id,
                 'purchase_date' => '2024-07-18',
                 'condition' => 'Maintenance',
+                'description' => 'Laptop',
             ]);
         } else {
             echo "Some required records are missing.\n";
@@ -65,7 +67,7 @@ class AssetSeeder extends Seeder
 
         if ($supplier && $site && $location && $category2 && $department) {
             Asset::create([
-                'asset_name' => 'NMAX 155',
+                'asset_tag' => 'Motorcycle - 2',
                 'brand' => 'Yamaha',
                 'model' => 'NMAX',
                 'serial_number' => 'FD396456',
@@ -77,6 +79,7 @@ class AssetSeeder extends Seeder
                 'department_id' => $department->id,
                 'purchase_date' => '2024-07-18',
                 'condition' => 'Maintenance',
+                'description' => 'Motorcycle',
             ]);
         } else {
             echo "Some required records are missing.\n";
@@ -84,7 +87,7 @@ class AssetSeeder extends Seeder
 
         if ($supplier && $site && $location && $category && $category2 && $department) {
         Asset::create([
-            'asset_name' => 'Laptop 1',
+            'asset_tag' => 'Laptop - 1',
             'brand' => 'Dell',
             'model' => 'Inspiron 15',
             'serial_number' => 'ABC123456',
@@ -96,10 +99,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'Maintenance',
+            'description' => 'Laptop',
         ]);
 
         Asset::create([
-            'asset_name' => 'Printer 1',
+            'asset_tag' => 'Printer - 1',
             'brand' => 'HP',
             'model' => 'LaserJet 1020',
             'serial_number' => 'XYZ789012',
@@ -111,10 +115,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'Maintenance',
+            'description' => 'Printer',
         ]);
 
         Asset::create([
-            'asset_name' => 'Projector 1',
+            'asset_tag' => 'Projector - 1',
             'brand' => 'Epson',
             'model' => 'PowerLite 2155',
             'serial_number' => 'DEF456789',
@@ -126,10 +131,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'Maintenance',
+            'description' => 'Projector',
         ]);
 
         Asset::create([
-            'asset_name' => 'Van 1',
+            'asset_tag' => 'Van - 1',
             'brand' => 'Toyota',
             'model' => 'Hiace',
             'serial_number' => 'GHI012345',
@@ -141,10 +147,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'New',
+            'description' => 'Van',
         ]);
 
         Asset::create([
-            'asset_name' => 'Truck 1',
+            'asset_tag' => 'Truck - 1',
             'brand' => 'Isuzu',
             'model' => 'Elf',
             'serial_number' => 'JKL678901',
@@ -156,10 +163,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'New',
+            'description' => 'Truck',
         ]);
 
         Asset::create([
-            'asset_name' => 'Motorcycle 1',
+            'asset_tag' => 'Motorcycle - 1',
             'brand' => 'Honda',
             'model' => 'XRM',
             'serial_number' => 'MNO234567',
@@ -171,10 +179,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'New',
+            'description' => 'Motorcycle',
         ]);
 
         Asset::create([
-            'asset_name' => 'Bicycle 1',
+            'asset_tag' => 'Bicycle - 1',
             'brand' => 'Trek',
             'model' => 'Mountain Bike',
             'serial_number' => 'PQR345678',
@@ -186,10 +195,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'New',
+            'description' => 'Bicycle',
         ]);
 
         Asset::create([
-            'asset_name' => 'Generator 1',
+            'asset_tag' => 'Generator - 1',
             'brand' => 'Kipor',
             'model' => 'KG 2000',
             'serial_number' => 'STU901234',
@@ -201,10 +211,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Generator',
         ]);
 
         Asset::create([
-            'asset_name' => 'Air Conditioner 1',
+            'asset_tag' => 'Air Conditioner - 1',
             'brand' => 'LG',
             'model' => 'Inverter',
             'serial_number' => 'VWX567890',
@@ -216,10 +227,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-07-18',
             'condition' => 'New',
+            'description' => 'Air Conditioner',
         ]);
 
         Asset::create([
-            'asset_name' => 'Refrigerator 1',
+            'asset_tag' => 'Refrigerator - 1',
             'brand' => 'Samsung',
             'model' => 'French Door',
             'serial_number' => 'YZA123456',
@@ -231,10 +243,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => '2024-06-18',
             'condition' => 'New',
+            'description' => 'Refrigerator',
         ]);
 
         Asset::create([
-            'asset_name' => 'Washing Machine 1',
+            'asset_tag' => 'Washing Machine - 1',
             'brand' => 'Whirlpool',
             'model' => 'Front Load',
             'serial_number' => 'BCD789012',
@@ -246,10 +259,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Washing Machine',
         ]);
 
         Asset::create([
-            'asset_name' => 'Dryer 1',
+            'asset_tag' => 'Dryer - 1',
             'brand' => 'LG',
             'model' => 'Inverter',
             'serial_number' => 'EFG456789',
@@ -261,10 +275,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Dryer',
         ]);
 
         Asset::create([
-            'asset_name' => 'Microwave 1',
+            'asset_tag' => 'Microwave - 1',
             'brand' => 'Panasonic',
             'model' => 'Inverter',
             'serial_number' => 'HIJ012345',
@@ -276,10 +291,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Microwave',
         ]);
 
         Asset::create([
-            'asset_name' => 'Toaster 1',
+            'asset_tag' => 'Toaster - 1',
             'brand' => 'Black+Decker',
             'model' => '4-Slice',
             'serial_number' => 'KLM678901',
@@ -291,10 +307,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Toaster',
         ]);
 
         Asset::create([
-            'asset_name' => 'Blender 1',
+            'asset_tag' => 'Blender - 1',
             'brand' => 'Philips',
             'model' => 'Hand Blender',
             'serial_number' => 'NOP234567',
@@ -306,10 +323,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Blender',
         ]);
 
         Asset::create([
-            'asset_name' => 'Stand Fan 1',
+            'asset_tag' => 'Stand Fan - 1',
             'brand' => 'KDK',
             'model' => '16-Inch',
             'serial_number' => 'QRS345678',
@@ -321,10 +339,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Fan',
         ]);
 
         Asset::create([
-            'asset_name' => 'Ceiling Fan 1',
+            'asset_tag' => 'Ceiling Fan - 1',
             'brand' => 'Hunter',
             'model' => '52-Inch',
             'serial_number' => 'TUV678901',
@@ -336,10 +355,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Fan',
         ]);
 
         Asset::create([
-            'asset_name' => 'Water Dispenser 1',
+            'asset_tag' => 'Water Dispenser - 1',
             'brand' => 'Aquasana',
             'model' => 'Hot and Cold',
             'serial_number' => 'WXY012345',
@@ -351,10 +371,11 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Water Dispenser',
         ]);
 
         Asset::create([
-            'asset_name' => 'Water Purifier 1',
+            'asset_tag' => 'Water Purifier - 1',
             'brand' => 'Brita',
             'model' => 'Longlast',
             'serial_number' => 'ZAB234567',
@@ -366,6 +387,7 @@ class AssetSeeder extends Seeder
             'department_id' => $department->id,
             'purchase_date' => now(),
             'condition' => 'New',
+            'description' => 'Water Purifier',
         ]);
     } else {
         echo "Some required records are missing.\n";

@@ -1,7 +1,12 @@
 Ubraha anay ni bag-o mo e serve ang laravel project nga gin clone mo HAHAHAHA
 
+<<<<<<< HEAD
 1. E run ni sa terminal: cp .env
 2. E run ni sa terminal: composer install
+=======
+1. E copy kag paste ang .env.example nga file tas e rename .env
+2. E run ni sa terminal: composer install --ignore-platform-req=ext-gd --ignore-platform-req=ext-zip
+>>>>>>> 8c4bf7042180f406616f8c65021024b50756ca02
 3. E run ni sa terminal: npm install
 4. E run ni sa terminal: php artisan key:generate
 5. E run ni sa terminal: php artisan migrate (type lang yes kung mangkuton ka nga ma ubra sang database)
@@ -9,5 +14,9 @@ Ubraha anay ni bag-o mo e serve ang laravel project nga gin clone mo HAHAHAHA
 7. E run ni sa terminal: php artisan storage:link
 8. E run ni sa terminal: npm run build
 
+<<<<<<< HEAD
 Go to C:\xampp\php\php.ini
 Search for ;extension=gd and ;extension=zip, and remove the ;
+=======
+Tas pwede mo na ma run ang php artisan serve
+>>>>>>> 8c4bf7042180f406616f8c65021024b50756ca02

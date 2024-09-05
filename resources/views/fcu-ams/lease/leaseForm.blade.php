@@ -39,13 +39,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>Asset Name</th>
+                    <th>Asset Tag</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($assets as $asset)
                     <tr>
-                        <td>{{ $asset->asset_name }}</td>
+                        <td>{{ $asset->asset_tag }}</td>
                     </tr>
                 @endforeach
             </tbody>

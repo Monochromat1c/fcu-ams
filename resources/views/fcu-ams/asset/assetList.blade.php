@@ -65,6 +65,7 @@
             </div>
         </div>
         <div class="mb-1 flex justify-between m-3 rounded-md">
+<<<<<<< HEAD
             <div class="space-x-2 flex">
                 <div class="export-list my-auto">
                     <a href="{{ route('asset.export') }}"
@@ -84,6 +85,22 @@
                     </form>
                 </div>
             </div>
+=======
+                <a href="{{ route('asset.export') }}"
+                    class="rounded-md shadow-md px-5 py-2 bg-orange-600 hover:shadow-md hover:bg-orange-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Export
+                    to Excel</a>
+            <!-- <div class="flex">
+                <a href=""
+                    class="mr-3 rounded-md shadow-md px-5 py-2 bg-green-600 hover:shadow-md hover:bg-green-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Stock
+                    In</a>
+                <a href="#"
+                    class="mr-3 rounded-md shadow-md px-5 py-2 bg-red-600 hover:shadow-md hover:bg-red-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Stock
+                    Out</a>
+                <a href="#"
+                    class="mr-3 rounded-md shadow-md px-5 py-2 bg-blue-600 hover:shadow-md hover:bg-blue-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Create
+                    Purchase Order</a>
+            </div> -->
+>>>>>>> 8c4bf7042180f406616f8c65021024b50756ca02
             <div class="pagination-here flex justify-between align-items-center">
                 <div class="flex align-items-center">
                     <ul class="pagination my-auto flex">
@@ -189,14 +206,14 @@
                             <th class="px-4 py-2 text-left bg-slate-100 border border-slate-400">
                                 <div class="flex">
                                     <a class="my-auto"
-                                        href="{{ route('asset.list', ['sort' => 'asset_name', 'direction' => ($direction == 'asc' && $sort == 'asset_name') ? 'desc' : 'asc']) }}">
+                                        href="{{ route('asset.list', ['sort' => 'asset_tag', 'direction' => ($direction == 'asc' && $sort == 'asset_tag') ? 'desc' : 'asc']) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
                                         </svg>
                                     </a>
-                                    <span class="mx-2">Asset Name</span>
+                                    <span class="mx-2">Asset Tag</span>
                                 </div>
                             </th>
                             <th class="px-4 py-2 text-left bg-slate-100 border border-slate-400">
@@ -282,7 +299,7 @@
                                             alt="Default Image" class="w-14 h-14 rounded-full mx-auto">
 @endif
                                 </td> -->
-                                <td class="border border-slate-300 px-4 py-2">{{ $asset->asset_name }}</td>
+                                <td class="border border-slate-300 px-4 py-2">{{ $asset->asset_tag }}</td>
                                 <td class="border border-slate-300 px-4 py-2">{{ $asset->cost }}</td>
                                 <td class="border border-slate-300 px-4 py-2">{{ $asset->supplier_name }}</td>
                                 <td class="border border-slate-300 px-4 py-2">{{ $asset->site_name }}</td>

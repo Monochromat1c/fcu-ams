@@ -24,7 +24,7 @@ class AssetController extends Controller
         $lowValueAssets = DB::table('assets')->where('cost', '<', 1000)->whereNull('deleted_at')->count();
         $highValueAssets = DB::table('assets')->where('cost', '>=', 1000)->whereNull('deleted_at')->count();
 
-        $sort = $request->input('sort', 'asset_name');
+        $sort = $request->input('sort', 'asset_tag');
         $direction = $request->input('direction', 'asc');
         $search = $request->input('search');
 
@@ -38,7 +38,7 @@ class AssetController extends Controller
 
         if ($search) {
             $query->where(function ($q) use ($search) {
-                $q->where('assets.asset_name', 'like', '%' . $search . '%')
+                $q->where('assets.asset_tag', 'like', '%' . $search . '%')
                     ->orWhere('suppliers.supplier', 'like', '%' . $search . '%')
                     ->orWhere('sites.site', 'like', '%' . $search . '%')
                     ->orWhere('locations.location', 'like', '%' . $search . '%')
@@ -54,7 +54,7 @@ class AssetController extends Controller
         if ($sort && $direction) {
             $query->orderBy($sort, $direction);
         } else {
-            $query->orderBy('asset_name', 'asc');
+            $query->orderBy('asset_tag', 'asc');
         }
 
         $assets = $query->whereNull('assets.deleted_at')->paginate(15);
@@ -80,10 +80,10 @@ class AssetController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'asset_name' => [
+            'asset_tag' => [
                 'required',
                 'string',
-                Rule::unique('assets', 'asset_name')->whereNull('deleted_at'),
+                Rule::unique('assets', 'asset_tag')->whereNull('deleted_at'),
             ],
             'brand' => 'required|string',
             'model' => 'required|string',
@@ -96,11 +96,12 @@ class AssetController extends Controller
             'department_id' => 'required|integer|exists:departments,id',
             'purchase_date' => 'required|date',
             'condition' => 'nullable|string',
+            'description' => 'string',
             'asset_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $asset = new Asset();
-        $asset->asset_name = $validatedData['asset_name'];
+        $asset->asset_tag = $validatedData['asset_tag'];
         $asset->brand = $validatedData['brand'];
         $asset->model = $validatedData['model'];
         $asset->serial_number = $validatedData['serial_number'];
@@ -112,6 +113,7 @@ class AssetController extends Controller
         $asset->department_id = $validatedData['department_id'];
         $asset->purchase_date = $validatedData['purchase_date'];
         $asset->condition = $validatedData['condition'];
+        $asset->description = $validatedData['description'];
 
         if ($request->hasFile('asset_image')) {
             $imageName = time().'.'.$request->asset_image->extension();
@@ -139,10 +141,10 @@ class AssetController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'asset_name' => [
+            'asset_tag' => [
                 'required',
                 'string',
-                Rule::unique('assets', 'asset_name')->ignore($id)->whereNull('deleted_at'),
+                Rule::unique('assets', 'asset_tag')->ignore($id)->whereNull('deleted_at'),
             ],
             'brand' => 'required|string',
             'model' => 'required|string',
@@ -159,7 +161,7 @@ class AssetController extends Controller
         ]);
 
         $asset = Asset::findOrFail($id);
-        $asset->asset_name = $validatedData['asset_name'];
+        $asset->asset_tag = $validatedData['asset_tag'];
         $asset->brand = $validatedData['brand'];
         $asset->model = $validatedData['model'];
         $asset->serial_number = $validatedData['serial_number'];
@@ -178,7 +180,7 @@ class AssetController extends Controller
             $asset->asset_image = 'profile/'.$imageName;
         }
 
-        $changes = 'Updated asset name to ' . $request->input('asset_name') . ', updated brand to ' .
+        $changes = 'Updated asset name to ' . $request->input('asset_tag') . ', updated brand to ' .
         $request->input('brand') . ', etc.';
 
         $this->storeEditHistory($asset, auth()->user(), $changes);
