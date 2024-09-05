@@ -12,6 +12,9 @@ use App\Models\Category;
 use App\Models\Department;
 use App\Models\AssetEditHistory;
 use Illuminate\Validation\Rule;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class AssetController extends Controller
 {
@@ -206,5 +209,47 @@ class AssetController extends Controller
         $editHistory->user_id = $user->id;
         $editHistory->changes = $changes;
         $editHistory->save();
+    }
+
+    public function export() { 
+        $assets = Asset::with(['supplier', 'site', 'location', 'category', 'department'])->get();
+        $spreadsheet = new Spreadsheet(); 
+        $sheet = $spreadsheet->getActiveSheet(); 
+        $sheet->setCellValue('A1','ID'); 
+        $sheet->setCellValue('B1', 'Asset Name'); 
+        $sheet->setCellValue('C1', 'Brand'); 
+        $sheet->setCellValue('D1','Model'); 
+        $sheet->setCellValue('E1', 'Serial Number'); 
+        $sheet->setCellValue('F1', 'Cost');    
+        $sheet->setCellValue('G1', 'Supplier'); 
+        $sheet->setCellValue('H1', 'Site'); 
+        $sheet->setCellValue('I1', 'Location');
+        $sheet->setCellValue('J1', 'Category'); 
+        $sheet->setCellValue('K1', 'Department'); 
+        $sheet->setCellValue('L1', 'Purchase Date'); 
+        $sheet->setCellValue('M1', 'Condition'); 
+        $sheet->setCellValue('N1', 'Created At'); 
+        $sheet->setCellValue('O1', 'Updated At'); 
+        $row = 2; foreach ($assets as $asset) { 
+            $sheet->setCellValue('A' . $row, $asset->id); 
+            $sheet->setCellValue('B' . $row, $asset->asset_name); 
+            $sheet->setCellValue('C' . $row, $asset->brand); 
+            $sheet->setCellValue('D' . $row, $asset->model); 
+            $sheet->setCellValue('E' . $row, $asset->serial_number); 
+            $sheet->setCellValue('F' . $row, $asset->cost); 
+            $sheet->setCellValue('G' . $row, $asset->supplier->supplier);
+            $sheet->setCellValue('H' . $row, $asset->site->site);
+            $sheet->setCellValue('I' . $row, $asset->location->location);
+            $sheet->setCellValue('J' . $row, $asset->category->category);
+            $sheet->setCellValue('K' . $row, $asset->department->department);
+            $sheet->setCellValue('L' . $row, $asset->purchase_date); 
+            $sheet->setCellValue('M' . $row, $asset->condition); 
+            $sheet->setCellValue('N' . $row, $asset->created_at); 
+            $sheet->setCellValue('O' . $row, $asset->updated_at); $row++; 
+        } 
+        $writer = new Xlsx($spreadsheet); $filename = 'assets_' . date('Y-m-d') . '.xlsx';
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="'. urlencode($filename).'"'); 
+        $writer->save('php://output'); 
     }
 }

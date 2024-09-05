@@ -31,12 +31,15 @@ Route::middleware(['auth.user'])->group(function () {
 
     Route::controller(AssetController::class)->group(function (){
         Route::get('/asset/list', 'index')->name('asset.list');
+        Route::get('/asset/export', 'exportToExcel')->name('asset.export');
         Route::get('/asset/{id}/view', 'show')->name('asset.view');
         Route::get('/asset/add', 'create')->name('asset.add');
         Route::get('/asset/{id}/edit', 'edit')->name('asset.edit');
         Route::get('/maintenance', 'maintenance')->name('maintenance');
+        Route::get('/asset/export', 'export')->name('asset.export');
         Route::post('/asset/add', 'store')->name('asset.add.store');
         Route::post('/asset/{id}', 'update')->name('asset.update');
+        Route::post('/asset/import', 'import')->name('asset.import');
         Route::delete('/asset/{id}', 'destroy')->name('asset.delete');
     }); 
 
