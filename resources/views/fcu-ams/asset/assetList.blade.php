@@ -65,7 +65,6 @@
             </div>
         </div>
         <div class="mb-1 flex justify-between m-3 rounded-md">
-<<<<<<< HEAD
             <div class="space-x-2 flex">
                 <div class="export-list my-auto">
                     <a href="{{ route('asset.export') }}"
@@ -85,22 +84,6 @@
                     </form>
                 </div>
             </div>
-=======
-                <a href="{{ route('asset.export') }}"
-                    class="rounded-md shadow-md px-5 py-2 bg-orange-600 hover:shadow-md hover:bg-orange-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Export
-                    to Excel</a>
-            <!-- <div class="flex">
-                <a href=""
-                    class="mr-3 rounded-md shadow-md px-5 py-2 bg-green-600 hover:shadow-md hover:bg-green-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Stock
-                    In</a>
-                <a href="#"
-                    class="mr-3 rounded-md shadow-md px-5 py-2 bg-red-600 hover:shadow-md hover:bg-red-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Stock
-                    Out</a>
-                <a href="#"
-                    class="mr-3 rounded-md shadow-md px-5 py-2 bg-blue-600 hover:shadow-md hover:bg-blue-500 transition-all duration-200 hover:scale-105 ease-in hover:shadow-inner text-white">Create
-                    Purchase Order</a>
-            </div> -->
->>>>>>> 8c4bf7042180f406616f8c65021024b50756ca02
             <div class="pagination-here flex justify-between align-items-center">
                 <div class="flex align-items-center">
                     <ul class="pagination my-auto flex">
